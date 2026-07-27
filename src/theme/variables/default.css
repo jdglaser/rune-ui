@@ -1,0 +1,34 @@
+:root,
+[data-color-scheme="default"] {
+  color-scheme: light;
+
+  --semantic-text-default: var(--color-neutral-95);
+  --semantic-text-muted: var(--color-neutral-60);
+  --semantic-text-disabled: var(--color-neutral-60);
+  --semantic-text-inverse: var(--color-neutral-1);
+  --semantic-text-danger: var(--color-red-70);
+
+  --semantic-surface-page: var(--color-neutral-1);
+  --semantic-surface-default: var(--color-neutral-1);
+  --semantic-surface-subtle: var(--color-neutral-10);
+  --semantic-surface-disabled: var(--color-neutral-10);
+
+  --semantic-border-default: var(--color-neutral-20);
+  --semantic-border-strong: var(--color-neutral-60);
+  --semantic-border-focus: var(--color-blue-60);
+  --semantic-border-danger: var(--color-red-60);
+  --semantic-border-disabled: var(--color-neutral-20);
+
+  --semantic-action-primary: var(--color-blue-60);
+  --semantic-action-primary-hover: var(--color-blue-70);
+  --semantic-action-primary-pressed: var(--color-blue-80);
+  --semantic-action-secondary: var(--color-neutral-1);
+  --semantic-action-secondary-hover: var(--color-neutral-10);
+  --semantic-action-secondary-pressed: var(--color-neutral-20);
+  --semantic-action-danger: var(--color-red-60);
+  --semantic-action-danger-hover: var(--color-red-70);
+  --semantic-action-danger-pressed: var(--color-red-80);
+  --semantic-action-disabled: var(--color-neutral-20);
+
+  --semantic-focus-ring: var(--color-blue-60);
+}
