@@ -1,7 +1,7 @@
 import { useTheme } from "@emotion/react";
 
-import { ThemeCatalog } from "@/pages/catalog/ThemeCatalog";
 import type { AppTheme } from "@/theme";
+import { Inline, Stack } from "@/ui/layout";
 
 const pageStyles = (theme: AppTheme) => ({
   width: "min(100% - 2rem, 72rem)",
@@ -29,7 +29,19 @@ export function App() {
           A reusable, accessible React UI foundation.
         </p>
       </header>
-      <ThemeCatalog />
+      <h2>Layout</h2>
+      <h3>Stack</h3>
+      <Stack>
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+      </Stack>
+      <h3>Inline</h3>
+      <Inline>
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+      </Inline>
     </main>
   );
 }

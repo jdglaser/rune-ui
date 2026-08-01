@@ -91,3 +91,6 @@ export const theme = {
     fast: "var(--transition-fast)",
   },
 } as const;
+
+export type AppTheme = typeof theme;
+export type SpacingKey = keyof typeof theme.space;

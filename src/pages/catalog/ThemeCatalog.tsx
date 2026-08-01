@@ -1,7 +1,19 @@
 import { useTheme } from "@emotion/react";
 
 import { palette } from "@/theme/palette";
-import type { AppTheme } from "@/theme/types";
+import type { AppTheme } from "@/theme/theme";
+
+const paletteFamilies = [
+  "neutral",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+] as const;
+
+const paletteShades = [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95] as const;
 
 const sectionStyles = (theme: AppTheme) => ({
   display: "grid",
@@ -15,7 +27,7 @@ const swatchGridStyles = (theme: AppTheme) => ({
 });
 
 const swatchStyles = (theme: AppTheme, color: string) => ({
-  minHeight: "5rem",
+  minHeight: "4rem",
   padding: theme.space.sm,
   display: "flex",
   alignItems: "end",
@@ -41,24 +53,39 @@ export function ThemeCatalog() {
           </p>
         </div>
         <div css={swatchGridStyles(theme)}>
-          <div css={swatchStyles(theme, palette.neutral[10])}>neutral-10</div>
-          <div css={swatchStyles(theme, palette.neutral[20])}>neutral-20</div>
-          <div
-            css={[
-              swatchStyles(theme, palette.blue[60]),
-              { color: theme.colors.text.inverse },
-            ]}
-          >
-            blue-60
-          </div>
-          <div
-            css={[
-              swatchStyles(theme, palette.red[60]),
-              { color: theme.colors.text.inverse },
-            ]}
-          >
-            red-60
-          </div>
+          {paletteFamilies.map((family) => (
+            <div
+              key={family}
+              css={{
+                display: "grid",
+                gap: theme.space.xs,
+                gridColumn: "1 / -1",
+              }}
+            >
+              <strong css={{ textTransform: "capitalize" }}>{family}</strong>
+              <div
+                css={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(11, minmax(3rem, 1fr))",
+                  gap: theme.space.xs,
+                }}
+              >
+                {paletteShades.map((shade) => (
+                  <div
+                    key={shade}
+                    css={[
+                      swatchStyles(theme, palette[family][shade]),
+                      shade >= 60 && family !== "yellow"
+                        ? { color: theme.colors.text.inverse }
+                        : undefined,
+                    ]}
+                  >
+                    {shade}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
