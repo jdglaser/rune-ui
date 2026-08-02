@@ -58,4 +58,35 @@ describe("App", () => {
       rootHeading,
     );
   });
+
+  it("renders a typed dynamic account ID", async () => {
+    renderRoute("/accounts/wisconsin-retirement");
+
+    expect(
+      await screen.findByRole("heading", {
+        level: 3,
+        name: "Account wisconsin-retirement",
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders mandates inside the persistent account section layout", async () => {
+    renderRoute("/accounts/wisconsin-retirement/mandates");
+
+    const accountHeading = await screen.findByRole("heading", {
+      level: 3,
+      name: "Account wisconsin-retirement",
+    });
+
+    expect(
+      screen.getByRole("heading", {
+        level: 4,
+        name: "Mandates for wisconsin-retirement",
+      }),
+    ).toBeInTheDocument();
+    expect(accountHeading).toBeInTheDocument();
+    expect(
+      screen.getByRole("navigation", { name: "Account sections" }),
+    ).toBeInTheDocument();
+  });
 });
