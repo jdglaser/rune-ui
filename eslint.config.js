@@ -31,6 +31,10 @@ export default tseslint.config(
     rules: {
       ...reactHooks.configs.recommended.rules,
       ...reactRefresh.configs.vite.rules,
+      "react-refresh/only-export-components": [
+        "error",
+        { allowExportNames: ["Route"] },
+      ],
     },
   },
   {
