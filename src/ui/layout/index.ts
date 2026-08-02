@@ -8,7 +8,10 @@ export { default as Grid } from "@/ui/layout/Grid";
 export type { GridProps } from "@/ui/layout/Grid";
 
 export { default as AutoGrid } from "@/ui/layout/AutoGrid";
-export type { AutoGridProps } from "@/ui/layout/AutoGrid";
+export type { AutoGridProps, AutoGridSize } from "@/ui/layout/AutoGrid";
 
 export { default as Container } from "@/ui/layout/Container";
 export type { ContainerProps, ContainerSize } from "@/ui/layout/Container";
+
+export { default as Center } from "@/ui/layout/Center";
+export type { CenterAxis, CenterProps } from "@/ui/layout/Center";

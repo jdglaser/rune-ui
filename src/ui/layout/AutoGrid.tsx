@@ -1,15 +1,17 @@
 import { css, useTheme } from "@emotion/react";
 import type { ComponentPropsWithoutRef } from "react";
 
-import type { SpacingKey } from "@/theme";
+import type { AppTheme, SpacingKey } from "@/theme";
 
 export type AutoGridProps = ComponentPropsWithoutRef<"div"> & {
-  minItemWidth?: string;
+  minItemWidth?: AutoGridSize;
   gap?: SpacingKey;
 };
 
+export type AutoGridSize = keyof AppTheme["autoGrid"]["minItemWidth"];
+
 export default function AutoGrid({
-  minItemWidth = "16rem",
+  minItemWidth = "md",
   gap = "md",
   className,
   children,
@@ -19,7 +21,7 @@ export default function AutoGrid({
 
   const autoGridStyles = css({
     display: "grid",
-    gridTemplateColumns: `repeat(auto-fit, minmax(min(${minItemWidth}, 100%), 1fr))`,
+    gridTemplateColumns: `repeat(auto-fit, minmax(min(${theme.autoGrid.minItemWidth[minItemWidth]}, 100%), 1fr))`,
     gap: theme.space[gap],
   });
 

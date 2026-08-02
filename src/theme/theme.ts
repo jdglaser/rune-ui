@@ -56,6 +56,13 @@ export const theme = {
     wide: "90rem",
     full: "none",
   },
+  autoGrid: {
+    minItemWidth: {
+      sm: "12rem",
+      md: "16rem",
+      lg: "20rem",
+    },
+  },
   typography: {
     fontSize: {
       body: "var(--font-size-body)",

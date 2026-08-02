@@ -1,7 +1,7 @@
 import { useTheme } from "@emotion/react";
 
 import type { AppTheme } from "@/theme";
-import { AutoGrid, Container, Grid, Inline, Stack } from "@/ui/layout";
+import { AutoGrid, Center, Container, Grid, Inline, Stack } from "@/ui/layout";
 
 const pageStyles = (theme: AppTheme) => ({
   paddingBlock: theme.space["2xl"],
@@ -127,12 +127,12 @@ export function App() {
                 AutoGrid: responsive equal-width items
               </h3>
               <p css={{ color: theme.colors.text.muted }}>
-                AutoGrid chooses the number of columns automatically. Each item
-                is at least <code>12rem</code> wide, and the columns adapt as
-                the available space changes.
+                AutoGrid chooses the number of columns automatically. The{" "}
+                <code>sm</code> preset keeps each item at least 12rem wide, and
+                the columns adapt as the available space changes.
               </p>
               <div css={demoSurface(theme)}>
-                <AutoGrid minItemWidth="12rem" gap="md">
+                <AutoGrid minItemWidth="sm" gap="md">
                   <div css={demoItem(theme)}>Item 1</div>
                   <div css={demoItem(theme)}>Item 2</div>
                   <div css={demoItem(theme)}>Item 3</div>
@@ -140,7 +140,25 @@ export function App() {
                 </AutoGrid>
               </div>
               <code css={codeStyles(theme)}>
-                {'<AutoGrid minItemWidth="12rem" gap="md">\n  ...\n</AutoGrid>'}
+                {'<AutoGrid minItemWidth="sm" gap="md">\n  ...\n</AutoGrid>'}
+              </code>
+            </Stack>
+          </section>
+
+          <section>
+            <Stack gap="sm">
+              <h3 css={{ margin: 0 }}>Center: centered content</h3>
+              <p css={{ color: theme.colors.text.muted }}>
+                Center places content on the selected axis. The default is both
+                horizontal and vertical.
+              </p>
+              <div css={demoSurface(theme)}>
+                <Center axis="both" minHeight="8rem">
+                  <div css={demoItem(theme)}>Centered content</div>
+                </Center>
+              </div>
+              <code css={codeStyles(theme)}>
+                {'<Center axis="both" minHeight="8rem">\n  ...\n</Center>'}
               </code>
             </Stack>
           </section>
