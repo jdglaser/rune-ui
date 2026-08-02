@@ -50,6 +50,12 @@ export const theme = {
     xl: "var(--space-xl)",
     "2xl": "var(--space-2xl)",
   },
+  contentWidths: {
+    narrow: "40rem",
+    normal: "64rem",
+    wide: "90rem",
+    full: "none",
+  },
   typography: {
     fontSize: {
       body: "var(--font-size-body)",
